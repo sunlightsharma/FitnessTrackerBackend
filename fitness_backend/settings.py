@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from decouple import config, Csv 
 
 load_dotenv()
 
@@ -24,9 +25,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
 ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS')
 # MIDDLEWARE
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # must be first
