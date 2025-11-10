@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
 ]
-CORS_ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS')
 # MIDDLEWARE
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # must be first
@@ -89,6 +88,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+
+CORS_ALLOWED_ORIGINS = config('ALLOWED_ORIGINS')
+CORS_ALLOW_CREDENTIALS = config("CORS_ALLOW_CREDENTIALS", default=True, cast=bool)
 
 # LANGUAGE / TIMEZONE
 LANGUAGE_CODE = 'en-us'
