@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "Fitness Tracker API",
+    "_postman_id": "fitness-tracker-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"sunny\",\n    \"email\": \"sunny@example.com\",\n    \"password\": \"Password123\",\n    \"password2\": \"Password123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/auth/register/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api","auth","register",""]
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"sunny\",\n    \"password\": \"Password123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/auth/login/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api","auth","login",""]
+        }
+      }
+    },
+    {
+      "name": "Create Activity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Authorization", "value": "Bearer {{access_token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"activity_type\": \"workout\",\n    \"title\": \"Morning Run\",\n    \"description\": \"5km jog in the park\",\n    \"date\": \"2025-11-10\",\n    \"status\": \"planned\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/activities/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api","activities",""]
+        }
+      }
+    },
+    {
+      "name": "List Activities",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{access_token}}"}
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/activities/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api","activities",""]
+        }
+      }
+    }
+  ]
+}
